@@ -1,0 +1,28 @@
+import 'package:args/args.dart';
+import 'feature_command.dart';
+
+/// This class represents the [create] command. It is the parent command for all
+/// subcommands that create new resources.
+/// example usage: `dart run bin/aviary.dart create feature --feature=test`
+class CreateCommand {
+  final name = 'create';
+  final ArgParser argParser = ArgParser();
+
+  CreateCommand() {
+    final featureCommand = FeatureCommand();
+    argParser.addCommand(featureCommand.name, featureCommand.argParser);
+  }
+
+  void runCommand(ArgResults commandResults) {
+    if (commandResults.command != null) {
+      final subCommandName = commandResults.command!.name;
+
+      if (subCommandName == 'feature') {
+        final featureCommand = FeatureCommand();
+        featureCommand.runCommand(commandResults.command!);
+      } else {
+        print('Unknown subcommand: $subCommandName');
+      }
+    }
+  }
+}
