@@ -53,7 +53,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
 
     final List<String> createdIssueLinks = [];
 
-    // Create the individual issues with a 5-second delay between each to avoid
+    // Create the individual issues with a 2-second delay between each to avoid
     // hitting the GitHub API rate limit.
     for (final issueTitle in issueList) {
       final issue = await github.issues.create(
@@ -66,7 +66,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
       );
       createdIssueLinks.add(issue.htmlUrl);
       print('Created issue: ${issue.htmlUrl}');
-      await Future.delayed(Duration(seconds: 5));
+      await Future.delayed(Duration(seconds: 2));
     }
 
     final String fullUmbrellaIssueBody =

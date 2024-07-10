@@ -1,7 +1,7 @@
 import 'package:args/args.dart';
 import 'package:aviary/commands/create/create_command.dart';
 
-const String version = '0.0.1';
+const String version = '0.0.2';
 
 ArgParser buildParser() {
   final parser = ArgParser()
