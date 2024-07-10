@@ -56,7 +56,7 @@ dart run bin/aviary.dart create feature --feature=augmentations --config=path/to
 
 ### Adding labels
 
-By default, features will be tagged with a `feature-$featureName` label.  If you desire a custom label, you can pass the label flag as `--label=$myCustomLabel` or if you desire no label at all, you can pass the --no-label flag. 
+By default, features will be tagged with a `feature-$featureName` label.  If you desire a custom label, you can pass the label flag as `--label=$myCustomLabel` or if you desire no label at all, you can pass the `--no-label` flag. 
 
 ## Defaults
 If no --owner or --repo flags are passed, the tool defaults to the dart-lang organization and the sdk repository:
