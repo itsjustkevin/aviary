@@ -26,7 +26,7 @@ List<String> generateIssueList(
 }
 
 Future<void> createLanguageIssues(String owner, String repo, String featureName,
-    String configFilePath) async {
+    String configFilePath, String? label, bool noLabel) async {
   final github = createGitHubClient();
 
   try {
@@ -36,6 +36,8 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
         generateIssueList(languageFeatureName, configFilePath);
     final String umbrellaIssueBody =
         'This is an umbrella issue covering $languageFeatureName.';
+    final List<String> labels =
+        noLabel ? [] : [label ?? 'feature-$languageFeatureName'];
 
     // Creates the umbrella issue to be used in the future.
     // This issue will be updated with links to the individual issues.
@@ -44,7 +46,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
       IssueRequest(
         title: umbrellaIssueTitle,
         body: umbrellaIssueBody,
-        labels: ['feature-$languageFeatureName'],
+        labels: labels,
       ),
     );
     print('Created umbrella issue: ${umbrellaIssue.htmlUrl}');
@@ -59,7 +61,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
         IssueRequest(
           title: issueTitle,
           body: '',
-          labels: ['feature-$languageFeatureName'],
+          labels: labels,
         ),
       );
       createdIssueLinks.add(issue.htmlUrl);
@@ -105,7 +107,9 @@ class FeatureCommand {
     ..addOption('config',
         abbr: 'c',
         help: 'Path to the configuration YAML file',
-        defaultsTo: 'config/issues.yaml');
+        defaultsTo: 'config/issues.yaml')
+    ..addFlag('no-label',
+        help: 'Do not apply a label to the issues', negatable: false);
 
   void runCommand(ArgResults commandResults) {
     final owner = commandResults['owner'] as String;
@@ -115,6 +119,7 @@ class FeatureCommand {
     final label = commandResults['label'] as String?;
     final noLabel = commandResults['no-label'] as bool;
 
-    createLanguageIssues(owner, repo, featureName, configFilePath);
+    createLanguageIssues(
+        owner, repo, featureName, configFilePath, label, noLabel);
   }
 }
