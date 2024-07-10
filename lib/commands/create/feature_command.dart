@@ -44,6 +44,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
       IssueRequest(
         title: umbrellaIssueTitle,
         body: umbrellaIssueBody,
+        labels: ['feature-$languageFeatureName'],
       ),
     );
     print('Created umbrella issue: ${umbrellaIssue.htmlUrl}');
@@ -58,6 +59,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
         IssueRequest(
           title: issueTitle,
           body: '',
+          labels: ['feature-$languageFeatureName'],
         ),
       );
       createdIssueLinks.add(issue.htmlUrl);
@@ -96,7 +98,10 @@ class FeatureCommand {
     ..addOption('repo',
         abbr: 'r', help: 'GitHub repository name', defaultsTo: 'sdk')
     ..addOption('feature',
-        abbr: 'f', help: 'Name of the feature to create issues for')
+        abbr: 'f',
+        help: 'Name of the feature to create issues for',
+        mandatory: true)
+    ..addOption('label', abbr: 'l', help: 'Label to apply to the issues')
     ..addOption('config',
         abbr: 'c',
         help: 'Path to the configuration YAML file',
@@ -105,13 +110,11 @@ class FeatureCommand {
   void runCommand(ArgResults commandResults) {
     final owner = commandResults['owner'] as String;
     final repo = commandResults['repo'] as String;
-    final featureName = commandResults['feature'] as String?;
+    final featureName = commandResults['feature'] as String;
     final configFilePath = commandResults['config'] as String;
+    final label = commandResults['label'] as String?;
+    final noLabel = commandResults['no-label'] as bool;
 
-    if (featureName != null) {
-      createLanguageIssues(owner, repo, featureName, configFilePath);
-    } else {
-      print('Please provide the feature name using --feature or -f.');
-    }
+    createLanguageIssues(owner, repo, featureName, configFilePath);
   }
 }
