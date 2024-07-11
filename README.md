@@ -1,3 +1,17 @@
+# Aviary CLI
+
+Aviary is a command-line interface (CLI) tool designed to streamline release management for Dart and Flutter projects. Named after an aviary, a place where birds are kept, Aviary is a fitting name for a tool designed to manage the "release" of software, much like birds are released from an aviary. The mascot for Dart and Flutter, Dash, is a vibrant and energetic female bird, symbolizing the freedom and agility that Aviary brings to your development workflow.
+
+## Introduction
+
+In the world of Dart and Flutter, managing releases can be a complex and time-consuming process. This is where Aviary comes into play. Just as an aviary provides a structured environment for birds before they take flight, Aviary offers a structured, efficient, and automated way to handle release management tasks. The name Aviary is a tribute to Dash, the beloved bird mascot of Dart and Flutter, representing the tool's purpose: to help your projects soar to new heights with smooth and controlled releases.
+
+## Features
+
+- **Automated Issue Creation**: Aviary automates the creation of GitHub issues, including umbrella issues and sub-issues for specific language features.
+- **Customizable Configurations**: Define issues and assignees through a YAML configuration file, allowing for easy customization.
+- **Flexible Labeling**: Optionally add custom labels to issues or disable labeling entirely.
+
 ## Prerequisites
 
 - Dart SDK: Ensure you have Dart installed on your system. You can download it from the [official Dart website](https://dart.dev/get-dart).
