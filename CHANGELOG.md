@@ -6,3 +6,7 @@
 
 - Adds flag to specify labels for the issues.
 - Lower sleep time between creating issues to 2 seconds from 5 seconds.
+
+## 0.0.3
+
+- Adds ability to add assignees and a body to issues.

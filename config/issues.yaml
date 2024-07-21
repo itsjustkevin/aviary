@@ -1,25 +1,73 @@
 issues:
-  - "Write the spec"
-  - "Language tests"
-  - "Co19 tests - add tests"
-  - "Implement feature in the CFE"
-  - "Analyzer implementation"
-  - "Tests validating as passing (Tracking via Google Sheet)"
-  - "Syntax highlighters implementation"
-  - "DDC implementation"
-  - "Dart2js implementation"
-  - "VM implementation"
-  - "Build system support"
-  - "Web debugging support"
-  - "Core library updates"
-  - "Analysis server / IDE"
-  - "dart_style support"
-  - "dartdoc implementation"
-  - "Cider support"
-  - "Kythe implementation"
-  - "Angular compiler implementation"
-  - "Intellij implementation"
-  - "Language feature docs"
-  - "VM service protocol support"
-  - "VM debugging support"
-  - "linter support"
+  - title: "Write the spec"
+    assignees: []
+    body: ""
+  - title: "Language tests"
+    assignees: []
+    body: ""
+  - title: "Co19 tests - add tests"
+    assignees: []
+    body: ""
+  - title: "Implement feature in the CFE"
+    assignees: []
+    body: ""
+  - title: "Analyzer implementation"
+    assignees: []
+    body: ""
+  - title: "Tests validating as passing (Tracking via Google Sheet)"
+    assignees: []
+    body: ""
+  - title: "Syntax highlighters implementation"
+    assignees: []
+    body: ""
+  - title: "DDC implementation"
+    assignees: []
+    body: ""
+  - title: "Dart2js implementation"
+    assignees: []
+    body: ""
+  - title: "VM implementation"
+    assignees: []
+    body: ""
+  - title: "Build system support"
+    assignees: []
+    body: ""
+  - title: "Web debugging support"
+    assignees: []
+    body: ""
+  - title: "Core library updates"
+    assignees: []
+    body: ""
+  - title: "Analysis server / IDE"
+    assignees: []
+    body: ""
+  - title: "dart_style support"
+    assignees: []
+    body: ""
+  - title: "dartdoc implementation"
+    assignees: []
+    body: ""
+  - title: "Cider support"
+    assignees: []
+    body: ""
+  - title: "Kythe implementation"
+    assignees: []
+    body: ""
+  - title: "Angular compiler implementation"
+    assignees: []
+    body: ""
+  - title: "Intellij implementation"
+    assignees: []
+    body: ""
+  - title: "Language feature docs"
+    assignees: []
+    body: ""
+  - title: "VM service protocol support"
+    assignees: []
+    body: ""
+  - title: "VM debugging support"
+    assignees: []
+    body: ""
+  - title: "linter support"
+    assignees: []
+    body: ""
