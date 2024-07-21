@@ -15,14 +15,27 @@ GitHub createGitHubClient() {
   return GitHub(auth: Authentication.withToken(token));
 }
 
-List<String> generateIssueList(
+class IssueTemplate {
+  final String title;
+  final List<String> assignees;
+  final String body;
+
+  IssueTemplate(this.title, this.assignees, this.body);
+}
+
+List<IssueTemplate> generateIssueList(
     String languageFeatureName, String configFilePath) {
   final configFile = File(configFilePath);
   final configContent = configFile.readAsStringSync();
   final yamlMap = loadYaml(configContent);
 
-  final issues = List<String>.from(yamlMap['issues']);
-  return issues.map((issue) => '[$languageFeatureName] $issue').toList();
+  final issues = List<YamlMap>.from(yamlMap['issues']);
+  return issues.map((issue) {
+    final title = '[$languageFeatureName] ${issue['title']}';
+    final assignees = List<String>.from(issue['assignees']);
+    final body = issue['body'];
+    return IssueTemplate(title, assignees, body);
+  }).toList();
 }
 
 Future<void> createLanguageIssues(String owner, String repo, String featureName,
@@ -32,7 +45,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
   try {
     final String languageFeatureName = featureName;
     final String umbrellaIssueTitle = 'Implement $featureName feature';
-    final List<String> issueList =
+    final List<IssueTemplate> issueList =
         generateIssueList(languageFeatureName, configFilePath);
     final String umbrellaIssueBody =
         'This is an umbrella issue covering $languageFeatureName.';
@@ -55,12 +68,13 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
 
     // Create the individual issues with a 2-second delay between each to avoid
     // hitting the GitHub API rate limit.
-    for (final issueTitle in issueList) {
+    for (final issueTemplate in issueList) {
       final issue = await github.issues.create(
         RepositorySlug(owner, repo),
         IssueRequest(
-          title: issueTitle,
-          body: '',
+          title: issueTemplate.title,
+          assignees: issueTemplate.assignees,
+          body: issueTemplate.body,
           labels: labels,
         ),
       );
@@ -70,7 +84,7 @@ Future<void> createLanguageIssues(String owner, String repo, String featureName,
     }
 
     final String fullUmbrellaIssueBody =
-        '$umbrellaIssueBody\n\nGenerated issue links:\n${createdIssueLinks.map((link) => '- $link').join('\n')}';
+        '$umbrellaIssueBody\n\nGenerated issue links:\n${createdIssueLinks.map((link) => '- [ ] $link').join('\n')}';
 
     // Update the umbrella issue created earlier with links to the created
     // issues
