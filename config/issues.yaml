@@ -1,73 +1,70 @@
 issues:
-  - title: "Write the spec"
+  - title: "Feature Spec"
     assignees: []
     body: ""
-  - title: "Language tests"
+  - title: "Language Tests"
     assignees: []
     body: ""
-  - title: "Co19 tests - add tests"
+  - title: "co19 Tests"
     assignees: []
     body: ""
-  - title: "Implement feature in the CFE"
+  - title: "Language and co19 Tests Passing"
     assignees: []
     body: ""
-  - title: "Analyzer implementation"
+  - title: "CFE Implementation"
     assignees: []
     body: ""
-  - title: "Tests validating as passing (Tracking via Google Sheet)"
+  - title: "Analyzer Implementation"
     assignees: []
     body: ""
-  - title: "Syntax highlighters implementation"
+  - title: "Analysis Server Implementation"
     assignees: []
     body: ""
-  - title: "DDC implementation"
+  - title: "Dartdoc Implementation"
     assignees: []
     body: ""
-  - title: "Dart2js implementation"
+  - title: "DDC Implementation"
     assignees: []
     body: ""
-  - title: "VM implementation"
+  - title: "Dart2js Implementation"
     assignees: []
     body: ""
-  - title: "Build system support"
+  - title: "Web Debugging Support"
     assignees: []
     body: ""
-  - title: "Web debugging support"
+  - title: "VM Implementation"
     assignees: []
     body: ""
-  - title: "Core library updates"
+  - title: "VM Service Protocol Support"
     assignees: []
     body: ""
-  - title: "Analysis server / IDE"
+  - title: "VM Debugging Support"
     assignees: []
     body: ""
-  - title: "dart_style support"
+  - title: "Build System Support"
     assignees: []
     body: ""
-  - title: "dartdoc implementation"
+  - title: "Core Library Updates"
     assignees: []
     body: ""
-  - title: "Cider support"
+  - title: "dart_style Formatting Support"
     assignees: []
     body: ""
-  - title: "Kythe implementation"
+  - title: "Intellij Support"
     assignees: []
     body: ""
-  - title: "Angular compiler implementation"
+  - title: "VSCode Support"
     assignees: []
     body: ""
-  - title: "Intellij implementation"
+  - title: "Cider Support"
     assignees: []
     body: ""
-  - title: "Language feature docs"
+  - title: "Kythe Implementation"
     assignees: []
     body: ""
-  - title: "VM service protocol support"
+  - title: "Angular Compiler Implementation"
     assignees: []
     body: ""
-  - title: "VM debugging support"
-    assignees: []
-    body: ""
-  - title: "linter support"
+  - title: "Language Feature Documentation"
     assignees: []
     body: ""
