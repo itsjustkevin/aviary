@@ -10,3 +10,6 @@
 ## 0.0.3
 
 - Adds ability to add assignees and a body to issues.
+
+## 0.0.4
+- Adds ability to generate release notes
