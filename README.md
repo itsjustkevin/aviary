@@ -9,6 +9,7 @@ In the world of Dart and Flutter, managing releases can be a complex and time-co
 ## Features
 
 - **Automated Issue Creation**: Aviary automates the creation of GitHub issues, including umbrella issues and sub-issues for specific language features.
+- **Automated Release Notes Generation**: Aviary can generate release notes for a specified tag range, formatting the output in Markdown for easy inclusion in your GitHub releases.
 - **Customizable Configurations**: Define issues and assignees through a YAML configuration file, allowing for easy customization.
 - **Flexible Labeling**: Optionally add custom labels to issues or disable labeling entirely.
 
@@ -70,10 +71,20 @@ dart run bin/aviary.dart create feature --feature=augmentations --config=path/to
 
 ### Adding labels
 
-By default, features will be tagged with a `feature-$featureName` label.  If you desire a custom label, you can pass the label flag as `--label=$myCustomLabel` or if you desire no label at all, you can pass the `--no-label` flag. 
+By default, features will be tagged with a `feature-$featureName` label.  If you desire a custom label, you can pass the label flag as `--label=$myCustomLabel` or if you desire no label at all, you can pass the `--no-label` flag.
+
+This will generate the release notes and save them to the release-notes.md file in the current directory.
 
 ## Defaults
 If no --owner or --repo flags are passed, the tool defaults to the dart-lang organization and the sdk repository:
+
+## Generating Release Notes
+Aviary can also generate release notes for a specified tag range and save them to a Markdown file. This can be useful when creating new releases on GitHub.
+### Basic Usage
+To generate release notes for the 3.16.0-0.5.pre tag, using 3.13.0 as the previous tag:
+```sh
+dart run bin/aviary.dart create release-notes --tag=3.16.0-0.5.pre --previous-tag=3.13.0
+```
 
 - Default Owner: dart-lang
 - Default Repository: sdk
