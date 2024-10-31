@@ -88,9 +88,9 @@ class ReleaseNotesCommand {
   }
 
   String transformLink(String line) {
-    return line.replaceAll(
-      RegExp(r'(https://github\.com/[^/]+/[^/]+/pull/(\d+))'),
-      r'[$2](\1)',
+    return line.replaceAllMapped(
+      RegExp(r'(by @(\w+) in )(https://github.com/[^/]+/[^/]+/pull/(\d+))'),
+      (match) => '${match.group(1)}[${match.group(4)}](${match.group(3)})',
     );
   }
 
